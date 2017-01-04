@@ -35,3 +35,10 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Personal
+.DS_Store
+git-info.txt
+public/bower_components
+public/css/**/*.css
+public/css/*.css
