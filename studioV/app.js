@@ -1,27 +1,49 @@
+'use strict';
+
+// Loading dependencies
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+
+// Initializing express aplication
+var app = express();
+
+// Body Parser
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+// Logger
+var logger = require('morgan');
 
-var app = express();
+// Cookies / Session
+var cookieParser = require('cookie-parser');
+
+// Layout setup
+var exphbs = require('express-handlebars');
+
+// Stylus setup
+var stylus = require('stylus');
+var nib = require('nip');
+
+// Handlebars setup
+app.engine('.hbs', exphbs({
+    extname: '.hbs',
+    defaultLayout: 'main',
+    layoutsDir: __dirname + '/views/layouts',
+    partialsDir: __dirname + '/views/partials'
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Routes
+var routes = require('./routes/index');
+var users = require('./routes/users');
 app.use('/', routes);
 app.use('/users', users);
 
