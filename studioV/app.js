@@ -9,12 +9,16 @@ var app = express();
 
 // Body Parser
 var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Logger
 var logger = require('morgan');
 
 // Cookies / Session
 var cookieParser = require('cookie-parser');
+app.use(cookieParser());
+app.use(logger('dev'));
 
 // Layout setup
 var exphbs = require('express-handlebars');
@@ -33,13 +37,9 @@ app.engine('.hbs', exphbs({
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.set('view engine', '.hbs');
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Routes
 var routes = require('./routes/index');
@@ -55,9 +55,6 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
-
-// development error handler
-// will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -78,5 +75,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
-module.exports = app;
+// Export application or start the server
+if (!!module.parent) {
+    module.exports = app;
+} else {
+    app.listen(3000);
+}
