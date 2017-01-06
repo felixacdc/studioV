@@ -25,7 +25,7 @@ var exphbs = require('express-handlebars');
 
 // Stylus setup
 var stylus = require('stylus');
-var nib = require('nip');
+var nib = require('nib');
 
 // Handlebars setup
 app.engine('.hbs', exphbs({
@@ -42,9 +42,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Routes
-var routes = require('./routes/index');
+var home = require('./routes/home');
 var users = require('./routes/users');
-app.use('/', routes);
+app.use('/', home);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

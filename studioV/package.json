@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "hotnode ./bin/www"
+    "start": "hotnode ./app"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
