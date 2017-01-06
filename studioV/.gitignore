@@ -1,5 +1,5 @@
 # Logs
-logs
+logs/*.log
 *.log
 npm-debug.log*
 
@@ -39,6 +39,6 @@ jspm_packages
 # Personal
 .DS_Store
 git-info.txt
-public/bower_components
-public/css/**/*.css
-public/css/*.css
+src/public/bower_components
+src/public/css/**/*.css
+src/public/css/*.css
