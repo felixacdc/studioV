@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "hotnode ./app"
+    "start": "pm2 start pm2.json"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -14,7 +14,8 @@
     "lodash": "latest",
     "morgan": "~1.7.0",
     "stylus": "latest",
-    "nib": "latest"
+    "nib": "latest",
+    "js-yaml": "latest"
     },
     "devDependecies": {
         "bower": "latest",
