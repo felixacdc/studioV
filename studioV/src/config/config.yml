@@ -1,6 +1,6 @@
 ---
 production: &default
-    serverPort:9898
+    serverPort: 9898
     baseUrl: http://www.studiovictory.com
     baseApi: /api/
     views:
@@ -14,13 +14,13 @@ production: &default
         default: home
     languages:
         default: en
-        list: [en, es, fr, pt, jp]
+        list: [en, es]
 
 stage: &stage
     <<: *default
     baseUrl: http://stage.studiovictory.com
 
-latest: $latest
+latest: &latest
     <<: *stage
     baseUrl: http://latest.studiovictory.com
 
