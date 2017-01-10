@@ -13,7 +13,9 @@ var config = require('./lib/config');
 // Body Parser
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
 // Logger
 var logger = require('morgan');
@@ -42,7 +44,6 @@ app.engine(config().views.engine, exphbs({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.hbs');
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 // Routes
 var home = require('./routes/home');

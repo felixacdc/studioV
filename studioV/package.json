@@ -24,7 +24,7 @@
     "nib": "latest",
     "js-yaml": "latest"
     },
-    "devDependecies": {
+    "devDependencies": {
         "bower": "latest",
         "grunt": "latest",
         "grunt-contrib-jshint": "latest",
