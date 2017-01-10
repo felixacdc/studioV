@@ -3,7 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "pm2 start pm2.json"
+    "preinstall": "npm prume",
+    "postinstall": "bower prune; bower install; grunt githooks"
+  },
+  "author": "Félix Méndez",
+  "license": "MIT",
+  "repository": {
+      "type": "git",
+      "url": "git@github.com:felixacdc/studioV.git"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -19,6 +26,10 @@
     },
     "devDependecies": {
         "bower": "latest",
-        "grunt": "latest"
+        "grunt": "latest",
+        "grunt-contrib-jshint": "latest",
+        "grunt-jscs": "latest",
+        "grunt-githooks": "latest",
+        "grunt-shell": "latest"
     }
 }
